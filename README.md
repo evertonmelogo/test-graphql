@@ -1,3 +1,14 @@
+# …or create a new repository on the command line
+echo "# test-graphql" >> README.md
+git init
+git add README.md
+git commit -m "first commit"
+git remote add origin https://github.com/evertonmelogo/test-graphql.git
+git push -u origin master
+# …or push an existing repository from the command line
+git remote add origin https://github.com/evertonmelogo/test-graphql.git
+git push -u origin master
+
 mutation {
   createUser(name: "Everton", repo:"github", age: 23),
   { id, name }
