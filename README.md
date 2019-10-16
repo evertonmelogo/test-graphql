@@ -9,6 +9,7 @@ git push -u origin master
 git remote add origin https://github.com/evertonmelogo/test-graphql.git
 git push -u origin master
 
+# Graphql query v1
 mutation {
   createUser(name: "Everton", repo:"github", age: 23),
   { id, name }
@@ -23,3 +24,4 @@ query {
   getUserByName(name: "Everton"),
   { id, name }
 }
+
