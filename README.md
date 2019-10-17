@@ -25,3 +25,14 @@ query {
   { id, name }
 }
 
+
+# v5
+mutation {
+  createUser(id: 1) { id, slug, name }
+}
+
+query {
+	user {
+	  id, name, slug
+	}
+}
