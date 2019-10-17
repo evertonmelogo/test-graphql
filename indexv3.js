@@ -1,6 +1,6 @@
 const app = require("express")();
 const expressGraphql = require("express-graphql");
-const { GraphQLSchema, GraphQLObjectType, GraphQLString, GraphQLInt, buildSchema } = require("graphql");
+const { GraphQLSchema, GraphQLObjectType, GraphQLString, buildSchema } = require("graphql");
 
 // const schema = buildSchema(`
 //   type User {
@@ -24,7 +24,6 @@ const { GraphQLSchema, GraphQLObjectType, GraphQLString, GraphQLInt, buildSchema
 
 //  
 const schema = new GraphQLSchema({
-
   query: new GraphQLObjectType({
 
     name: 'Query',
@@ -34,27 +33,7 @@ const schema = new GraphQLSchema({
       }
     })
 
-  }),
-
-  mutation: new GraphQLObjectType({
-
-    name: 'Mutation',
-    fields: () => ({
-      createHello: {
-        type: GraphQLString,
-        description: 'Create a new hello',
-        args: {
-          id: { type: GraphQLInt }
-        },
-        resolve: (value, {id} ) => {
-          console.log(id)
-          return "teste";
-        }
-      }
-    })
-
   })
-
 });
 
 const providers = {
@@ -104,7 +83,7 @@ app.use(
     expressGraphql({
         schema,
         rootValue: resolvers,
-        graphiql: true
+        graphiql: false
     })
 );
 
